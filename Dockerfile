@@ -8,4 +8,4 @@ RUN wget https://download.jetbrains.com/go/goland-${version}.tar.gz &&\
     tar -xzf goland-${version}.tar.gz && rm -f goland-${version}.tar.gz
 
 
-CMD goland-${version}/bin/goland.sh
+CMD GoLand-${version}/bin/goland.sh
