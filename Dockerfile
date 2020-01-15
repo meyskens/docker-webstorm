@@ -1,6 +1,6 @@
 FROM ubuntu:bionic
 
-RUN apt-get update && apt-get install -y git wget tar fish
+RUN apt-get update && apt-get install -y git wget tar fish libfontconfig1 libxrender1
 
 ENV version 2019.3.1
 
