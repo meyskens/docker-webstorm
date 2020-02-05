@@ -14,6 +14,9 @@ RUN wget https://download.jetbrains.com/go/goland-${version}.tar.gz &&\
     tar -xzf goland-${version}.tar.gz && rm -f goland-${version}.tar.gz
 
 RUN chown -R user GoLand-${version}
+
+RUN chsh user -s /usr/bin/fish
+
 USER user
 
 COPY idea.properties GoLand-${version}/bin/
