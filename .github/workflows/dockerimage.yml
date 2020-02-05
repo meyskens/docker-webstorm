@@ -11,8 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag maartje/goland
+      run: docker build . --file Dockerfile --tag maartje/goland:maartje
     - name: Log in to registry
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "meyskens" --password-stdin
     - name: Push image
-      run: docker push maartje/goland:latest
+      run: docker push maartje/goland:maartje
