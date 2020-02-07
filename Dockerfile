@@ -2,15 +2,15 @@ FROM meyskens/vscode-maartje
 
 USER root
 
-ENV version 2019.3.2
-
+#ENV version 2019.3.2
+ENV version 201.4515.41
 RUN apt-get update && apt-get install -y git wget tar fish libfontconfig1 libxrender1 libxext6 libxtst6 libxi6
 
 ENV GOPATH /home/user/go
 ENV GOROOT /usr/local/go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
-RUN wget https://download.jetbrains.com/go/goland-${version}.tar.gz &&\
+RUN wget https://download-cf.jetbrains.com/go/goland-${version}.tar.gz &&\
     tar -xzf goland-${version}.tar.gz && rm -f goland-${version}.tar.gz
 
 RUN chown -R user GoLand-${version}
