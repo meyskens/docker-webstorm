@@ -3,7 +3,7 @@ FROM meyskens/vscode-maartje
 USER root
 
 #ENV version 2019.3.2
-ENV version 201.4515.41
+ENV version 201.5259.15
 RUN apt-get update && apt-get install -y git wget tar fish libfontconfig1 libxrender1 libxext6 libxtst6 libxi6
 
 ENV GOPATH /home/user/go
