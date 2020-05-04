@@ -2,7 +2,7 @@ FROM meyskens/vscode-maartje
 
 USER root
 
-ENV version 2020.1
+ENV version 2020.1.1
 RUN apt-get update && apt-get install -y git wget tar fish libfontconfig1 libxrender1 libxext6 libxtst6 libxi6
 
 ENV GOPATH /home/user/go
