@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y git wget tar fish libfontconfig1 libxre
 
 RUN wget https://download.jetbrains.com/webstorm/WebStorm-${version}.tar.gz &&\
     tar -xzf WebStorm-${version}.tar.gz && rm -f WebStorm-${version}.tar.gz
+RUN mv WebStorm-* WebStorm-${version}
 RUN chown -R user WebStorm-${version}
 
 RUN chsh user -s /usr/bin/fish
