@@ -11,8 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag maartje/goland:maartje
+      run: docker build . --file Dockerfile --tag quay.io/maartje/webstorm:maartje
     - name: Log in to registry
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "meyskens" --password-stdin
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin quay.io
     - name: Push image
-      run: docker push maartje/goland:maartje
+      run: docker push quay.io/maartje/webstorm:maartje
