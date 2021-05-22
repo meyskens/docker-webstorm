@@ -1,18 +1,25 @@
-name: Docker Image CI
+name: Docker Image Publish
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
+    - name: Configure Docker
+      run: |
+        echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
+        sudo service docker restart
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag quay.io/maartje/webstorm:maartje
-    - name: Log in to registry
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin quay.io
-    - name: Push image
-      run: docker push quay.io/maartje/webstorm:maartje
+      run: docker build . --squash --file Dockerfile --tag ghcr.io/meyskens/webstorm-maartje:latest
+      env:
+        DOCKER_CLI_EXPERIMENTAL: enabled
+    - name: Log in to GH registry
+      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+    - name: Push image to GH
+      run: |
+        docker push ghcr.io/meyskens/webstorm-maartje:latest
