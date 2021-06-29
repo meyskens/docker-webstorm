@@ -2,7 +2,7 @@ FROM ghcr.io/meyskens/vscode-maartje
 
 USER root
 
-ENV version 2021.1.1
+ENV version 2021.1.2
 RUN apt-get update && apt-get install -y git wget tar fish libfontconfig1 libxrender1 libxext6 libxtst6 libxi6
 
 RUN wget https://download.jetbrains.com/webstorm/WebStorm-${version}.tar.gz &&\
